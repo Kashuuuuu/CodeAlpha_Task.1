@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Language Translator</title>
+</head>
+<body>
+    <h1>Language Translator</h1>
+    <form method="post">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text to translate..."></textarea><br>
+        <select name="language">
+            {% for code, language in LANGUAGES.items() %}
+                <option value="{{ code }}">{{ language }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Translate">
+    </form>
+
+    {% if original %}
+        <h2>Original Text:</h2>
+        <p>{{ original }}</p>
+        <h2>Translated Text:</h2>
+        <p>{{ translated }}</p>
+        <h3>Language: {{ target_language }}</h3>
+    {% endif %}
+</body>
+</html>
